@@ -1,0 +1,6 @@
+<div>
+  <label for="country">Select city</label>
+  <select class="form-select" id="country" [(ngModel)]="selectedCity" (change)="onCityChange()">
+    <option *ngFor="let city of cities" [value]="city">{{ city.name }}</option>
+  </select>
+</div>
