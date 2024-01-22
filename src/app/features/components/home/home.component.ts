@@ -17,20 +17,19 @@ export class HomeComponent implements OnInit {
   public city = DEFAULT_CITY;
   public weatherData: any;
 
-  constructor(private weatherService: WeatherService,
-              private locationChangeService: LocationChangeService) {
+  constructor() {
   }
 
   public ngOnInit() {
-    this.locationChangeService.cityChange$.pipe(
-      switchMap((city: string) => {
-        this.city = city;
-        return this.weatherService.getWeatherByCity(this.city);
-      })
-    ).subscribe({
-        next: data => this.weatherData = data,
-        error: err => console.log(err)
-      }
-    )
+    // this.locationChangeService.cityChange$.pipe(
+    //   switchMap((city: string) => {
+    //     this.city = city;
+    //     return this.weatherService.getWeatherByCity(this.city);
+    //   })
+    // ).subscribe({
+    //     next: data => this.weatherData = data,
+    //     error: err => console.log(err)
+    //   }
+    // )
   }
 }
